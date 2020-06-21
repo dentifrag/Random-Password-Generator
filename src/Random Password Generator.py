@@ -4,6 +4,7 @@ import string
 import csv 
 import os
 
+
 choice = ''
 
 # input for while loop
@@ -33,8 +34,9 @@ while choice != '3':
         final_password = ''
 
         # opens the csv file and appends them to a list
+        word_list_path = os.path.join(os.path.dirname(__file__), '10000Words.csv')
         for i in range(0, word_amount):
-            with open('C:\\Users\\wagne\\Documents\\Visual Studio 2019\\Random Password Genrator\\Random-Password-Generator\\10000Words.csv') as f:
+            with open(word_list_path) as f:
                 reader = csv.reader(f)
                 password_words.append(random.choice(list(reader)))
                 # puts the words that were randomly chosen into one big string
