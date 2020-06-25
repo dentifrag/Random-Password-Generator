@@ -4,7 +4,6 @@ import string
 import csv 
 import os
 
-
 choice = ''
 
 # input for while loop
