@@ -1,6 +1,6 @@
 from Password_GeneratorUI import *
 import sys
-import random
+import secrets
 import string
 # I am using a 10000 word csv list for passwords
 import csv 
@@ -21,7 +21,7 @@ class App(Ui_MainWindow):
             #max of 24
             length = self.amount.value()
             characters_numbers = string.ascii_letters + string.digits + '!@#$%^&*()_+'
-            characters_numbers = ''.join(random.choice(characters_numbers) for num in range(int(length)))
+            characters_numbers = ''.join(secrets.choice(characters_numbers) for num in range(int(length)))
             #writing the passwords to the text box
             self.textBrowser.setText(characters_numbers)
         
@@ -37,7 +37,7 @@ class App(Ui_MainWindow):
             for i in range(0, length):
                 with open(word_list_path) as f:
                     reader = csv.reader(f)
-                    password_words.append(random.choice(list(reader)))
+                    password_words.append(secrets.choice(list(reader)))
                     # puts the words that were randomly chosen into one big string
                     final_password = ("".join(["".join(x) for x in password_words]))
                     #writing the passwords to the text box

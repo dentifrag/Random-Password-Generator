@@ -1,4 +1,4 @@
-import random
+import secrets
 import string
 # I am using a 10000 word csv list for passwords
 import csv 
@@ -22,7 +22,7 @@ while choice != '3':
         # I also put in random characters to also add to the for loop
         def randomPass(length = answer):
             characters_numbers = string.ascii_letters + string.digits + '!@#$%^&*()_+'
-            return ''.join(random.choice(characters_numbers) for num in range(length))
+            return ''.join(secrets.choice(characters_numbers) for num in range(length))
 
         print('Here is your password: ' + randomPass())
         print()
@@ -37,7 +37,7 @@ while choice != '3':
         for i in range(0, word_amount):
             with open(word_list_path) as f:
                 reader = csv.reader(f)
-                password_words.append(random.choice(list(reader)))
+                password_words.append(secrets.choice(list(reader)))
                 # puts the words that were randomly chosen into one big string
                 final_password = ("".join(["".join(x) for x in password_words]))
                 
